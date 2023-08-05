@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"
+        integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Israr-Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(17, 17, 17);
+            overflow-x: hidden;
+        }
+
+        nav {
+            background-color: rgb(10, 10, 10);
+            font-size: 20px;
+        }
+
+        nav a {
+            color: rgb(133, 4, 239);
+        }
+
+        nav button {
+            color: white;
+        }
+
+        .fa-font {
+            margin: 0px 5px;
+            font-size: 40px;
+        }
+
+        .yellow {
+            color: rgb(209, 6, 245);
+            margin: 0px 5px;
+        }
+
+        nav p {
+            background-color: rgb(90, 5, 116);
+            padding: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px black;
+            color: white;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .home {
+            margin-top: 15px;
+            padding-bottom: 0px;
+        }
+
+        .big {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .git {
+            transition: 1s;
+        }
+
+        .git:hover {
+            background-color: rgb(17, 17, 17);
+            color: rgb(53, 4, 62);
+            cursor: pointer;
+        }
+
+        .common {
+            transition: 1s;
+            padding: 13px;
+            font-weight: bold;
+            border-radius: 15px;
+        }
+
+        .common:hover {
+            background-color: rgb(114, 12, 135);
+            text-decoration: none;
+            text-shadow: 1px 1px black;
+            color: white;
+        }
+
+        .logo .aadil {
+            transition: 1s;
+        }
+
+        .logo:hover .aadil {
+            color: white;
+        }
+
+        .container1 {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .container1 .box {
+            position: relative;
+            width: 20rem;
+            height: 20rem;
+            margin: 3rem 3rem 0px 3rem;
+        }
+
+        .container1 .box:hover .imgbox {
+            transform: translate(1.5rem, -1.5rem);
+        }
+
+        .container1 .box:hover .content {
+            transform: translate(-3.5rem, 3.5rem);
+        }
+
+        .imgbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .imgbox img {
+            width: 20rem;
+            height: 20rem;
+            object-fit: cover;
+            resize: both;
+        }
+
+        .content {
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: all 0.5s ease-in-out;
+            background-color: rgb(114, 12, 104);
+        }
+
+        .content h2 {
+            position: absolute;
+            bottom: 2px;
+            left: 3rem;
+            font-size: 30px;
+            color: white;
+            text-shadow: 1px 1px black;
+        }
+
+        .content span {
+            font-size: 20px;
+        }
+
+        .info {
+            margin: 70px 0px;
+        }
+
+        .info h2 {
+            color: rgb(7, 106, 112);
+            font-size: 30px;
+        }
+
+        .info span {
+            color: white;
+            font-size: 22px;
+            margin-left: 45px;
+        }
+
+        .info p {
+            color: white;
+            font-size: 17px;
+            margin-left: 5px;
+        }
+
+        .info button {
+            background-color: transparent;
+            border: 3px solid rgb(76, 6, 76);
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            transform: scale(1.1);
+            margin: 10px 10px;
+        }
+
+        .info button>span {
+            position: relative;
+            background-color: rgb(86, 12, 101);
+            padding: 5px 10px;
+            margin: 0;
+            border: 2px solid white;
+            border-radius: 100%;
+            left: 7px;
+        }
+
+        .trans {
+            transform: scale(1.2);
+        }
+
+        .sec1 {
+            text-align: center;
+        }
+
+        .top {
+            margin-top: 20px;
+            margin-bottom: -50px;
+        }
+
+        .sec1 h2 {
+            color: rgb(51, 51, 51);
+            font-weight: bold;
+            font-size: 90px;
+        }
+
+        .sec1 h1 {
+            color: rgb(109, 14, 109);
+            font-weight: bold;
+            position: relative;
+            font-size: 50px;
+            bottom: 85px;
+        }
+
+        .sec1 h1>span {
+            color: white;
+        }
+
+        .sec3 h1 {
+            color: white;
+            font-size: 30px;
+        }
+
+        .gray {
+            color: rgb(88, 88, 88);
+        }
+
+        .white {
+            color: white;
+            margin-left: 5px;
+        }
+
+        .left {
+            display: inline-block;
+            margin: 0px 10px;
+        }
+
+        .right {
+            display: inline-block;
+            margin: 0px 10px;
+        }
+
+        .sec3 {
+            padding: 0px;
+        }
+
+        .disp {
+            margin: 0px 50px;
+            border: 2px solid white;
+        }
+
+        .sec3 button {
+            background-color: transparent;
+            border: 3px solid rgb(78, 3, 88);
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            transform: scale(1.1);
+            margin: 10px 10px;
+        }
+
+        .sec3 button>span {
+            position: relative;
+            background-color: rgb(122, 6, 101);
+            padding: 5px 10px;
+            margin: 0;
+            color: rgb(255, 255, 255);
+            border: 2px solid white;
+            border-radius: 100%;
+            left: 7px;
+        }
+
+        .sec3 h1 {
+            margin: 30px 10px;
+
+        }
+
+        #logos>div {
+            display: inline-block;
+            width: 25%;
+            text-align: center;
+            font-size: 50px;
+            color: rgb(83, 8, 98);
+            border: 2px solid rgb(97, 7, 97);
+            border-radius: 15px;
+            margin: 5px 2px;
+        }
+
+        #logos>div p {
+            font-size: 15px;
+            color: white;
+        }
+
+        #logos>div img {
+            width: 60px;
+        }
+
+        .sec4 {
+            color: white;
+            padding: 20px;
+        }
+
+        .sec4 h1 {
+            font-size: 25px;
+        }
+
+        .sec4 p {
+            font-size: 12px;
+        }
+
+        .sign {
+            display: inline-block;
+            color: rgb(121, 25, 138);
+            font-size: 30px;
+        }
+
+        .head {
+            display: inline-block;
+        }
+
+        .head p {
+            color: rgb(64, 6, 67);
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 0px;
+            margin-bottom: 5px;
+        }
+
+        .head span {
+            line-height: 0px;
+            font-size: 12px;
+        }
+
+        .sec4 {
+            margin-top: -80px;
+        }
+
+        .sec4>div>div>div {
+            margin: 5px 0px;
+        }
+
+        #icons {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        #icons a {
+            color: rgb(60, 5, 65);
+        }
+
+        #icons a :hover {
+            color: white;
+        }
+
+        form {
+            margin: auto 0px;
+        }
+
+        .sec4 button {
+            background-color: transparent;
+            border: 3px solid rgb(91, 6, 77);
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            transform: scale(1.1);
+            margin: 20px 10px;
+        }
+
+        .sec4 button>span {
+            position: relative;
+            background-color: rgb(79, 4, 52);
+            padding: 5px 10px;
+            margin: 0;
+            color: rgb(255, 255, 255);
+            border: 2px solid white;
+            border-radius: 100%;
+            left: 7px;
+        }
+
+        .form-control {
+            background-color: rgb(96, 9, 96);
+            width: 100%;
+            border: none;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            padding: 5px 10px;
+        }
+
+        .map {
+            border: 5px solid rgb(68, 5, 88);
+            padding: 0px;
+            border-radius: 15px;
+        }
+
+        .map iframe {
+            border-radius: 10px;
+            height: 300px;
+            width: 100%;
+            margin-bottom: -6px;
+        }
+
+        .gap {
+            margin-bottom: 20px;
+        }
+
+        #top-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            color: rgb(66, 7, 84);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md ">
+        <a href="index.html" class="navbar-brand high logo">
+            <span class="yellow big Israrul"><i class="fa-solid fa-code"></i> Israr-</span><span
+                class="text-light big port">Portfolio</span>
+        </a>
+        <button class="navbar-toggler red mx-3" type="button" data-toggle="collapse" data-target="#my-navbar">
+            <i class="fa-solid fa-bars yellow trans"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="my-navbar">
+            <ul class="navbar-nav mx-auto p-3">
+                <li class="mx-3 home">
+                    <a href="index.html" class="common">Home</a>
+                </li>
+                <li class="mx-3 my-1">
+                    <p class="inl git red git1"><a>Get In Touch</a></p>
+                </li>
+            </ul>
+            <a id="call" href="tel:6207741562" class="mx-4 common"><i class="fa-solid fa-phone"></i> Contact Us</a>
+        </div>
+    </nav>
+    <header class="container">
+        <div class="row">
+            <div class="col-md" data-aos="fade-right" data-aos-duration="1000">
+                <div class="container1">
+                    <div class="box">
+                        <div class="imgbox">
+                            <img src="image/background.png1.jpeg" alt="Israr Image">
+                        </div>
+                        <div class="content">
+                            <h2>Israrul Haque <br />
+                                <span>Front-end Designer</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md" data-aos="fade-left" data-aos-duration="1000">
+                <div class="info">
+                    <h2>
+                        <i class="fa-solid fa-laptop-code"></i> I'M Israrul Haque.<br />
+                        <span>FRONT-END WEB DESIGNER</span>
+                    </h2>
+                    <p>I'm Israrul Haque, a Front-end website designer. Can create very attractive and responsive
+                        websites by
+                        the means of Bootstrap. I am passionate about building excellent websites that improves the
+                        lives of my clients.</p>
+                    <button id="mam" onclick="mam()">More About Me <span><i
+                                class="fa-solid fa-plus"></i></span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="sec1 container top" id="resume" data-aos="zoom-in" data-aos-duration="1000">
+        <div>
+            <h2>
+                RESUME
+            </h2>
+        </div>
+        <div>
+            <h1>ABOUT<span>ME</span></h1>
+        </div>
+    </section>
+    <section class="sec3 container">
+        <div class="container" data-aos="fade-up" data-aos-duration="1000">
+            <h1>PERSONAL INFO</h1>
+            <div class="row">
+                <div class="left col-md">
+                    <p><span class="gray">First Name:</span><span class="white">Israrul</span></p>
+                    <p>
+                        <span class="gray">Age:</span><span class="white">21 Years</span>
+                    </p>
+                    <p>
+                        <span class="gray">Freelance:</span><span class="white">Available</span>
+                    </p>
+                    <p>
+                        <span class="gray">Phone:</span><span class="white">+91-6207741562</span>
+                    </p>
+                </div>
+                <div class="right col-md">
+                    <p>
+                        <span class="gray">Last Name:</span><span class="white">Haque</span>
+                    </p>
+                    <p>
+                        <span class="gray">Nationality:</span><span class="white">Indian</span>
+                    </p>
+                    <p>
+                        <span class="gray">Address:</span><span class="white">Siwan, Bihar</span>
+                    </p>
+                    <p>
+                        <span class="gray">Email:</span><span class="white">israrulhaque899@gmail.com</span>
+                    </p>
+                    <a download="Israrul-CV" href=""><button>Download CV <span><i
+                                    class="fa-solid fa-down-long"></i></span></button></a>
+                </div>
+                <div class="col-md">
+                    <div id="logos">
+                        <h1>TECHNICAL SKILLS</h1>
+                        <div data-aos="fade-down" data-aos-duration="1000">
+                            <i class="fa-brands fa-html5"></i>
+                            <p>HTML</p>
+                        </div>
+                        <div data-aos="fade-down" data-aos-duration="1000">
+                            <i class="fa-brands fa-css3-alt"></i>
+                            <p>CSS</p>
+                        </div>
+                        <div data-aos="fade-down" data-aos-duration="1000">
+                            <i class="fa-brands fa-square-js"></i>
+                            <p>JavaScript</p>
+                        </div>
+                        <div data-aos="fade-up" data-aos-duration="1000">
+                            <img src="image/download.jpeg" alt="jQuery">
+                            <p>jQuery</p>
+                        </div>
+                        <div data-aos="fade-up" data-aos-duration="1000">
+                            <i class="fa-brands fa-bootstrap"></i>
+                            <p>Bootstrap</p>
+                        </div>
+                        <div data-aos="fade-up" data-aos-duration="1000">
+                            <i class="fa-brands fa-python"></i>
+                            <p>Python</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="map my-4 container" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"
+        data-aos-duration="1000">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.3011819744515!2d84.36142027441302!3d26.21940167706713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3992fc08e6ab7c8b%3A0x2abe1229fdfec67e!2sMakhdum%20Sarai%20Rd%2C%20M.m%20Colony%2C%20Siwan%2C%20Bihar%20841226!5e0!3m2!1sen!2sin!4v1690997272016!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+    <section class="sec1 container my-5" data-aos="zoom-in" data-aos-duration="1000">
+        <div>
+            <h2>
+                CONTACT
+            </h2>
+        </div>
+        <div>
+            <h1>GET IN <span>TOUCH</span></h1>
+        </div>
+    </section>
+    <section class="sec4 container gap">
+        <div class="row">
+            <div class="col-md" data-aos="fade-right" data-aos-duration="1000">
+                <h1>
+                    DONT'T BE SHY!
+                </h1>
+                <p>Feel free to contact. I'm always open to discuss new projects or opportunities to be part of other's
+                    visions.</p>
+                <div>
+                    <div class="sign"><i class="fa-solid fa-map"></i></div>
+                    <div class="head">
+                        <p>ADDRESS</p>
+                        <span>Makhdoom Sarai, West, Siwan, Bihar.</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="sign"><i class="fa-solid fa-envelope-open"></i></div>
+                    <div class="head">
+                        <p>MAIL</p>
+                        <span>israrulhaque899@gmail.com</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="sign"><i class="fa-solid fa-square-phone"></i></div>
+                    <div class="head">
+                        <p>CALL</p>
+                        <span>+91-6207741562</span>
+                    </div>
+                </div>
+                <div id="icons">
+                    <span>
+                        <a href="https://www.facebook.com/profile.php?id=100014872473789" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a>
+                    </span>
+                    <span>
+                        <a href="https://www.instagram.com/israrul._.haque/" target="_blank"><i
+                                class="fa-brands fa-square-instagram"></i></a>
+                    </span>
+                    <span>
+                        <a href="https://www.linkedin.com/in/israrul-haque-9bb2811b1" target="_blank"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md" data-aos="fade-left" data-aos-duration="1000">
+                <form name="google-sheet">
+                    <div class="row">
+                        <div class="col-md">
+                            <input type="text" placeholder="YOUR NAME" name="Name" class="form-control" required />
+                        </div>
+                        <div class="col-md">
+                            <input type="email" placeholder="YOUR EMAIL" class="form-control" name="Email" required />
+                        </div>
+                    </div>
+                    <div>
+                        <textarea
+                            style="background-color:rgb(51, 51, 51);border: none;border-radius: 15px;color: black;"
+                            cols="20" rows="6" placeholder="YOUR MESSAGE" name="Message"
+                            class="form-control"></textarea>
+                    </div>
+                    <button type="submit">SEND MESSAGE <span><i
+                                class="fa-solid fa-circle-arrow-right"></i></span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <label id="top-button"><i class="fa-solid fa-circle-up fa-3x"></i></label>
+</body>
+<script>
+    AOS.init();
+    //script for scroll to top
+    $("#top-button").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, 1000);
+    });
+
+    $(".git").click(function () {
+        $("html, body").animate({ scrollTop: $(document).height() - $(window).height() }, 1000);
+    });
+</script>
+<script>
+    function mam() {
+        $("html, body").animate({
+            scrollTop: $("#resume").offset().top
+        }, 1000);
+        return false;
+    }
+</script>
+<script>
+    var scriptURL = "https://script.google.com/macros/s/AKfycbxjZxx-MWcsvePfmXuUffXoT0TB5u-oJidRemaH6tiSTTfaENDKHoRk6KDsEQpBiysflQ/exec";
+    var form = document.forms['google-sheet'];
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+    });
+</script>
+</html>
